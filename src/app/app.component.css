@@ -1,0 +1,44 @@
+:host {
+  --content-padding: 10px;
+}
+.brand-name {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  padding: 20px 35px;
+  background-color: #242424;
+  border-bottom: 2px solid #ddc469;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  z-index: 99px;
+}
+.content {
+  padding: var(--content-padding);
+}
+
+.search-box {
+  height: 80%;
+  width: 30%;
+  border: 3px solid;
+  border-radius: 20px;
+  font-size: x-large;
+  padding-left: 40px;
+}
+.navigation a {
+  position: relative;
+  font-size: larger;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ddc469;
+  margin-left: 30px;
+}
+
+.navigation .login-btn {
+  width: 200px;
+}
+
+svg {
+  display: inline;
+}

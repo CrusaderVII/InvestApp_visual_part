@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+:root {
+  --primary-color: #605DC8;
+  --secondary-color: #8B89E6;
+  --accent-color: #e8e7fa;
+  --shadow-color: #E8E8E8;
+  margin: 0;
+  background-color: #4A4A4A;
+}
+
+button.primary {
+  padding: 10px;
+  border: solid 1px var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+}
+
+.center {
+  width: 100%;
+  text-align: center;
+}
+
+.container:last-child {
+  display: inline-block;
+  padding-left: 30px;
+  height: 100%;
+}
+
+.container-inner {
+  height: 75%;
+  width: 100%;
+  background-color: #605DC8;
+  
+}
+
+div.left-container {
+  background-color: #4A4A4A;
+  width: 70%;
+  height: 100%;
+  border-right: 3px solid #5CDF76;
+  margin-top: 0%;
+}
+
+div.right-container {
+  background-color: #4A4A4A;
+  width: 30%;
+  height: 100%;
+}
