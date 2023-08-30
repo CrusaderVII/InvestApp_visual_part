@@ -9,7 +9,7 @@ import { IssuerComponent } from './issuer/issuer.component';
   ],
   template: `
   <main>
-    <header class="brand-name">
+    <header class="main-header">
       <div class="container">
         <svg viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="#ddc469" stroke="#ddc469" height="50px" width="50px">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">

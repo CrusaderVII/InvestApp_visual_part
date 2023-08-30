@@ -1,7 +1,7 @@
 :host {
   --content-padding: 10px;
 }
-.brand-name {
+.main-header {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -15,7 +15,7 @@
   z-index: 99;
 }
 .content {
-  padding: var(--content-padding);
+  padding-bottom: 10px;
 }
 
 .search-box {
@@ -77,6 +77,13 @@
   display: inline-block;
   margin-left: 20px;
   cursor: pointer;
+}
+
+.content {
+  padding: 0;
+  margin-top: 100px;
+  width: 100%;
+  padding-bottom: 30px;
 }
 
 svg {
