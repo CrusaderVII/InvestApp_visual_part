@@ -29,18 +29,10 @@ button.primary {
   width: 100%;
   text-align: center;
 }
-
-.container:last-child {
-  display: inline-block;
-  padding-left: 30px;
+.container {
   height: 100%;
-}
-
-.container-inner {
-  height: 75%;
-  width: 100%;
-  background-color: #605DC8;
-  
+  align-items: center;
+  display: flex;
 }
 
 div.left-container {

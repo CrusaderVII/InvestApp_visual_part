@@ -6,13 +6,13 @@
   top: 0%;
   left: 0%;
   width: 100%;
-  padding: 20px 35px;
+  padding: 20px 20px;
   background-color: #242424;
   border-bottom: 2px solid #ddc469;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  z-index: 99px;
+  z-index: 99;
 }
 .content {
   padding: var(--content-padding);
@@ -33,10 +33,50 @@
   text-decoration: none;
   color: #ddc469;
   margin-left: 30px;
+  padding-bottom: 5px;
 }
 
-.navigation .login-btn {
-  width: 200px;
+.navigation a::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1.5px;
+  background-color: #ddc469;
+  left: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transition: .2s;
+}
+
+.navigation a:hover::after {
+  transform: scaleX(1);
+}
+
+.navigation button {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #ddc469;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  font-size: large;
+  font-weight: 600;
+  color: #ddc469;
+  margin-left: 30px;
+  transition: .5s;
+}
+
+.navigation button:hover {
+  background-color: #ddc469;
+  color: #242424;
+}
+
+.company-name {
+  color: #ddc469;
+  display: inline-block;
+  margin-left: 20px;
+  cursor: pointer;
 }
 
 svg {
