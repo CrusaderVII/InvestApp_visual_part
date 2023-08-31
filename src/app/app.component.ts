@@ -31,7 +31,7 @@ import { IssuerComponent } from './issuer/issuer.component';
       </nav>
     </header>
     <section class="content">
-      <app-issuer></app-issuer>
+      <app-issuer>[isuser]="issuer"</app-issuer>
     </section>
 </main>`,
   styleUrls: ['./app.component.css'],
