@@ -12,6 +12,8 @@ export class IssuerService {
     constructor(private http: HttpClient) { }
 
     public getIssuerNow (secId: string): Observable<Issuer> {
+        console.log(`${this.apiServerURL}now/issuer&secId=${secId}`)
+
         return this.http.get<Issuer>(`${this.apiServerURL}now/issuer`, {params: {
             secId: secId
         }})

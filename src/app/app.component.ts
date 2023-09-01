@@ -23,7 +23,6 @@ import { LogService } from './services/LogService';
         </path></g></svg>
         <h1 class="company-name">InvestApp</h1>
       </div>
-      {{console.log('lol')}}
       <nav class="navigation">
         <a href="#">Home</a>
         <a href="#">Market</a>

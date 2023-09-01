@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { IssuerService } from '../services/IssuerService';
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'issuer',
@@ -7,7 +8,7 @@ import { IssuerService } from '../services/IssuerService';
   <header class="issuer-header">
     <div class="right-box">
       <div class="company-name">
-        <h1 class="ticker">{{issuer.secId}}</h1>
+        <h1 class="ticker">{{issuer.shortName}}</h1>
         <h1 class="name">{{issuer.fullName}}</h1>
       </div>
       <div class="price">
@@ -20,37 +21,33 @@ import { IssuerService } from '../services/IssuerService';
   styleUrls: ['./issuer.component.css']
 })
 export class IssuerComponent implements OnInit{
-  public issuer: Issuer;
+  public issuer: Issuer = new Issuer();
+  private apiServerURL = 'http://localhost:8070/investapp.com/issuer/'
 
-  constructor (private issuerService: IssuerService){}
+  constructor (private client: HttpClient){}
 
   ngOnInit() {
-    this.getIssuerNow
+    this.getIssuerNow()
   }
 
   public getIssuerNow(): void {
-    this.issuerService.getIssuerNow('GAZP').subscribe(
+    this.getIssuerNowSrvice('GAZP').subscribe(
       (response: Issuer) => {
+        console.log(response.fullName)
+
         this.issuer = response
       }
     );
   }
 
-  // issuer: Issuer = {
-  //   secId: 'GAZP',
-  //   fullName: 'Газпром ао',
-  //   priceLow: 0,
-  //   priceHigh: 0,
-  //   priceOpen: 0,
-  //   date: '2023-08-31 19:44:44',
-  //   priceNow: 175.6,
-  //   percent: 0.32
-  // };
-  
+  public getIssuerNowSrvice (secId: string): Observable<Issuer> {
+
+    return this.client.get<Issuer>(`${this.apiServerURL}now?secId=${secId}`)
+}
 }
 
 export class Issuer {
-  secId: string;
+  shortName: string;
 	fullName: string;
 	priceLow: number;
 	priceHigh: number;
