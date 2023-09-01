@@ -1,12 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { IssuerComponent } from './issuer/issuer.component';
+import { IssuerModule } from './issuer/issuer.module';
+import { HttpClientModule } from "@angular/common/http";
+import { LogService } from './services/LogService';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    IssuerComponent,
-  ],
   template: `
   <main>
     <header class="main-header">
@@ -22,7 +23,7 @@ import { IssuerComponent } from './issuer/issuer.component';
         </path></g></svg>
         <h1 class="company-name">InvestApp</h1>
       </div>
-      
+      {{console.log('lol')}}
       <nav class="navigation">
         <a href="#">Home</a>
         <a href="#">Market</a>
@@ -31,12 +32,16 @@ import { IssuerComponent } from './issuer/issuer.component';
       </nav>
     </header>
     <section class="content">
-      <app-issuer>[isuser]="issuer"</app-issuer>
+      <issuer></issuer>
     </section>
+    
 </main>`,
   styleUrls: ['./app.component.css'],
+  imports: [CommonModule, IssuerModule, HttpClientModule],
+  providers: [LogService],
 })
 export class AppComponent {
+  console = console;
   title = 'Hello world';
 }
 

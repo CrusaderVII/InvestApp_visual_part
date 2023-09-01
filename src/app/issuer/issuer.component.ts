@@ -1,13 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Component, OnInit} from '@angular/core';
+import { IssuerService } from '../services/IssuerService';
 
 @Component({
-  selector: 'app-issuer',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+  selector: 'issuer',
+  template:`
   <header class="issuer-header">
     <div class="right-box">
       <div class="company-name">
@@ -23,25 +19,37 @@ import { Observable } from 'rxjs';
 `,
   styleUrls: ['./issuer.component.css']
 })
-export class IssuerComponent {
-  //@Input() issuer!: Issuer;
+export class IssuerComponent implements OnInit{
+  public issuer: Issuer;
 
-  //issuers: any = (data as any).default;
+  constructor (private issuerService: IssuerService){}
 
-  issuer: Issuer = {
-    secId: 'GAZP',
-    fullName: 'Газпром ао',
-    priceLow: 0,
-    priceHigh: 0,
-    priceOpen: 0,
-    date: '2023-08-31 19:44:44',
-    priceNow: 175.6,
-    percent: 0.32
-  };
+  ngOnInit() {
+    this.getIssuerNow
+  }
+
+  public getIssuerNow(): void {
+    this.issuerService.getIssuerNow('GAZP').subscribe(
+      (response: Issuer) => {
+        this.issuer = response
+      }
+    );
+  }
+
+  // issuer: Issuer = {
+  //   secId: 'GAZP',
+  //   fullName: 'Газпром ао',
+  //   priceLow: 0,
+  //   priceHigh: 0,
+  //   priceOpen: 0,
+  //   date: '2023-08-31 19:44:44',
+  //   priceNow: 175.6,
+  //   percent: 0.32
+  // };
   
 }
 
-export interface Issuer {
+export class Issuer {
   secId: string;
 	fullName: string;
 	priceLow: number;
