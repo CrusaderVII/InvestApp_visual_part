@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IssuerModule } from './issuer/issuer.module';
 import { HttpClientModule } from "@angular/common/http";
-import { LogService } from './services/LogService';
 import { IssuerService } from './services/IssuerService';
 
 
@@ -12,10 +11,10 @@ import { IssuerService } from './services/IssuerService';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [CommonModule, IssuerModule, HttpClientModule],
-  providers: [LogService, IssuerService],
+  providers: [IssuerService],
 })
 export class AppComponent {
   console = console;
-  title = 'Hello world';
+  title = 'InvestApp';
 }
 

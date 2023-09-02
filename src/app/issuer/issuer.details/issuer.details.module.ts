@@ -1,25 +1,23 @@
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { IssuerComponent } from "./issuer.component";
 import { FormsModule } from "@angular/forms";
-import { IssuerService } from "../services/IssuerService";
+import { IssuerService } from "../../services/IssuerService";
 import { CommonModule } from "@angular/common";
-import { IssuerDetaislModule } from "./issuer.details/issuer.details.module";
+import { IssuerDetailsComponent } from "./issuer.details.component";
 
 @NgModule ({
     imports: [
         HttpClientModule,
         FormsModule,
-        CommonModule,
-        IssuerDetaislModule
+        CommonModule
     ],
 
     declarations: [
-        IssuerComponent
+        IssuerDetailsComponent
     ],
 
     exports: [
-        IssuerComponent
+        IssuerDetailsComponent
     ],
 
     providers: [
@@ -27,4 +25,4 @@ import { IssuerDetaislModule } from "./issuer.details/issuer.details.module";
     ]
 
 })
-export class IssuerModule{}
+export class IssuerDetaislModule{}

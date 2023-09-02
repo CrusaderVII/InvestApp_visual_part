@@ -1,4 +1,5 @@
-<header class="issuer-header">
+<body>
+  <div class="issuer-header">
     <div class="left-box">
       <div class="company-name">
         <h1 class="ticker">{{issuer.shortName}}</h1>
@@ -12,7 +13,16 @@
         <ng-template #elseBlock>
           <h1 class="percent-negative">{{issuer.percent}}%</h1>
         </ng-template>
-        
       </div>
     </div>
-</header>
+    <div class="right-box">
+      <button class="issuer-header-btn">
+        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+      </button>
+      <button class="issuer-header-btn">Chart</button>
+    </div>   
+  </div>
+  <section>
+    <issuer-details></issuer-details>
+  </section>
+</body>

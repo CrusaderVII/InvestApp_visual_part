@@ -8,7 +8,6 @@ import { IssuerService } from '../services/IssuerService';
 })
 export class IssuerComponent implements OnInit{
   public issuer: Issuer = new Issuer();
-  private apiServerURL = 'http://localhost:8070/investapp.com/issuer/'
 
   constructor (private service: IssuerService){}
 
@@ -17,7 +16,7 @@ export class IssuerComponent implements OnInit{
   }
 
   public getIssuerNow(): void {
-    this.service.getIssuerNow('VTBR').subscribe(
+    this.service.getIssuerNow('AFLT').subscribe(
       (response: Issuer) => {
         this.issuer = response
       }

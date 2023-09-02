@@ -2,10 +2,13 @@
 .issuer-header {
    display: flex;
    width: 100%;
-   height: 300px;
+   height: 160px;
    border-bottom: 2px solid #CCCCCC;
    background: transparent;
-   padding-bottom: 25px;
+   justify-content: space-between;
+   z-index: 99;
+   padding-left: 5%;
+   padding-right: 5%;
 }
 
 .left-box {
@@ -15,6 +18,40 @@
    background: transparent;
    margin-top: 30px;
    display: block;
+}
+
+.right-box {
+   height: 50%;
+   width: 40%;
+   margin-top: 30px;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+}
+
+.issuer-header-btn{
+   display: inline-block;
+   height: 70%;
+   border: 2px solid #7FBA00;
+   border-radius: 30px;
+   align-items: center;
+   width: 30%;
+   text-align: center;
+   text-transform: uppercase;
+   color: #7FBA00;
+   background-color: white;
+   transition: .4s;
+   font-size: 25px;
+}
+
+.issuer-header-btn + .issuer-header-btn{
+   margin-left: 30px;
+   width: 65%;
+}
+
+.issuer-header-btn:hover {
+   color: white;
+   background-color: #7FBA00;
 }
 
 .company-name {
@@ -38,6 +75,7 @@
 .name {
    color: gray;
    font-size: 18px;
+   margin-left: 10px;
 }
 
 .amount {
@@ -50,12 +88,13 @@
    display: inline-block;
    color: #7FBA00;
    font-size: 20px;
-   
+   margin-left: 15px;
 }
 
 .percent-negative {
    display: inline-block;
    color: #F25022;
    font-size: 20px;
-   
+   margin-left: 15px;
 }
+

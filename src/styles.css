@@ -1,9 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 * {
   margin: 0;
-  padding-left: 4%;
-  padding-right: 4%;
-  padding-top: 0;
   box-sizing: border-box;
 }
 
@@ -18,8 +15,8 @@ body {
   --positive-color: #7FBA00;
   --negative-color: #F25022;
   margin: 0;
-  padding-left: 4%;
-  padding-right: 4%;
+  padding-left: 14%;
+  padding-right: 14%;
   background-color: white;
 }
 
