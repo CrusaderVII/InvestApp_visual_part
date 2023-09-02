@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 * {
   margin: 0;
-  padding: 0;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 0;
   box-sizing: border-box;
 }
 
@@ -16,8 +18,9 @@ body {
   --positive-color: #7FBA00;
   --negative-color: #F25022;
   margin: 0;
-  padding: 0;
-  background-color: #4A4A4A;
+  padding-left: 4%;
+  padding-right: 4%;
+  background-color: white;
 }
 
 button.primary {

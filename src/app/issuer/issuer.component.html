@@ -1,12 +1,18 @@
 <header class="issuer-header">
-    <div class="right-box">
+    <div class="left-box">
       <div class="company-name">
         <h1 class="ticker">{{issuer.shortName}}</h1>
         <h1 class="name">{{issuer.fullName}}</h1>
       </div>
       <div class="price">
         <h1 class="amount">{{issuer.priceNow}}</h1>
-        <h1 class="percent">{{issuer.percent}}%</h1>
+        <div *ngIf="issuer.percent>0; else elseBlock">
+          <h1 class="percent-positive">{{issuer.percent}}%</h1>
+        </div>
+        <ng-template #elseBlock>
+          <h1 class="percent-negative">{{issuer.percent}}%</h1>
+        </ng-template>
+        
       </div>
     </div>
-  </header>
+</header>

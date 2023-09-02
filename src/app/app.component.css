@@ -1,30 +1,38 @@
 :host {
-  --content-padding: 10px;
+  padding: auto;
 }
+
 .main-header {
-  position: fixed;
   top: 0%;
   left: 0%;
   width: 100%;
+  height: 80px;
   padding: 20px 20px;
-  background-color: #242424;
-  border-bottom: 2px solid #ddc469;
+  background-color: white;
+  border-bottom: 2px solid #CCCCCC;
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   z-index: 99;
 }
-.content {
-  padding-bottom: 10px;
+.search-container {
+  height: 100%;
+  width: 50%;
+  margin-bottom: 20px;
+  position: relative;
+  align-items: center;
 }
 
 .search-box {
-  height: 80%;
-  width: 30%;
-  border: 3px solid;
+  height: 100%;
+  width: 100%;
+  background: #F0F0F0;
+  border: none;
   border-radius: 20px;
   font-size: x-large;
-  padding-left: 40px;
+  padding-left: 50px;
+  box-sizing: border-box;
+  display: inline-block;
 }
 .navigation a {
   position: relative;
@@ -81,11 +89,14 @@
 
 .content {
   padding: 0;
-  margin-top: 100px;
+  margin-top: 10px;
   width: 100%;
   padding-bottom: 30px;
 }
 
-svg {
-  display: inline;
+i {
+  position: absolute;
+  color: gray;
+  top: 10px;
 }
+

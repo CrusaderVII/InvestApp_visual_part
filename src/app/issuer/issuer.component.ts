@@ -17,7 +17,7 @@ export class IssuerComponent implements OnInit{
   }
 
   public getIssuerNow(): void {
-    this.service.getIssuerNow('GAZP').subscribe(
+    this.service.getIssuerNow('VTBR').subscribe(
       (response: Issuer) => {
         this.issuer = response
       }

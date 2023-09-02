@@ -3,60 +3,59 @@
    display: flex;
    width: 100%;
    height: 300px;
-   border-bottom: 2px solid #ddc469;
+   border-bottom: 2px solid #CCCCCC;
    background: transparent;
-   padding: 20px;
-   margin-bottom: 20px;
+   padding-bottom: 25px;
 }
 
-.right-box {
-   height: 100%;
+.left-box {
+   left: 0;
+   height: 50%;
    width: 40%;
-   background: rgb(36,36,36);
-   margin-bottom: 10px;
-   border-radius: 20px;
-   padding: 30px;
+   background: transparent;
+   margin-top: 30px;
    display: block;
 }
 
 .company-name {
    display: flex;
-   align-items: center;
-   justify-content: space-between;
-   z-index: 99;
+   align-items: end;
 }
 
 .price {
    display: flex;
-   align-items:flex-end;
-   margin-top: auto;
-   padding-top: 20%;
+   align-items:end;
+   margin-top: 10px;
 }
 
 .ticker {
    text-transform: uppercase;
-   color: #ddc469;
-   display: inline-block;
-   font-size: 35px;
+   color: black;
+   
+   font-size: 25px;
 }
 
 .name {
-   display: inline-block;
-   color: #ddc469;
-   margin-left: 20px;
-   font-size: 35px;
+   color: gray;
+   font-size: 18px;
 }
 
 .amount {
    display: inline-block;
-   color: #ddc469;
-   font-size: 50px;
+   color: black;
+   font-size: 35px;
 }
 
-.percent {
+.percent-positive {
    display: inline-block;
    color: #7FBA00;
-   font-size: 35px;
-   margin-left: 20px;
+   font-size: 20px;
+   
 }
 
+.percent-negative {
+   display: inline-block;
+   color: #F25022;
+   font-size: 20px;
+   
+}
