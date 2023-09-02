@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { IssuerModule } from './issuer/issuer.module';
 import { HttpClientModule } from "@angular/common/http";
 import { LogService } from './services/LogService';
+import { IssuerService } from './services/IssuerService';
 
 
 @Component({
@@ -37,7 +38,7 @@ import { LogService } from './services/LogService';
 </main>`,
   styleUrls: ['./app.component.css'],
   imports: [CommonModule, IssuerModule, HttpClientModule],
-  providers: [LogService],
+  providers: [LogService, IssuerService],
 })
 export class AppComponent {
   console = console;

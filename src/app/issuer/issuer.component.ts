@@ -1,49 +1,28 @@
 import { Component, OnInit} from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { IssuerService } from '../services/IssuerService';
 
 @Component({
   selector: 'issuer',
-  template:`
-  <header class="issuer-header">
-    <div class="right-box">
-      <div class="company-name">
-        <h1 class="ticker">{{issuer.shortName}}</h1>
-        <h1 class="name">{{issuer.fullName}}</h1>
-      </div>
-      <div class="price">
-        <h1 class="amount">{{issuer.priceNow}}</h1>
-        <h1 class="percent">{{issuer.percent}}%</h1>
-      </div>
-    </div>
-  </header>
-`,
+  templateUrl: './issuer.component.html',
   styleUrls: ['./issuer.component.css']
 })
 export class IssuerComponent implements OnInit{
   public issuer: Issuer = new Issuer();
   private apiServerURL = 'http://localhost:8070/investapp.com/issuer/'
 
-  constructor (private client: HttpClient){}
+  constructor (private service: IssuerService){}
 
   ngOnInit() {
     this.getIssuerNow()
   }
 
   public getIssuerNow(): void {
-    this.getIssuerNowSrvice('GAZP').subscribe(
+    this.service.getIssuerNow('GAZP').subscribe(
       (response: Issuer) => {
-        console.log(response.fullName)
-
         this.issuer = response
       }
     );
   }
-
-  public getIssuerNowSrvice (secId: string): Observable<Issuer> {
-
-    return this.client.get<Issuer>(`${this.apiServerURL}now?secId=${secId}`)
-}
 }
 
 export class Issuer {
