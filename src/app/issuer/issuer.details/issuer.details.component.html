@@ -8,7 +8,8 @@
         </ul>
     </header>
 
-    <li *ngFor="let item of marketData">
-        <h1>{{item.priceOpen}}</h1>
-    </li>
+    <div class="chart-container">
+        <canvas #chart class="chart"></canvas>
+    </div>
+
 </body>
