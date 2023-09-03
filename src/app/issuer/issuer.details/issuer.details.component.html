@@ -7,4 +7,8 @@
             <li><a class="header-option" href="#"><i class="fa fa-pie-chart" aria-hidden="true"></i>Stats</a></li>
         </ul>
     </header>
+
+    <li *ngFor="let item of marketData">
+        <h1>{{item.priceOpen}}</h1>
+    </li>
 </body>

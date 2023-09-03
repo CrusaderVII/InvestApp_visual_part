@@ -1,5 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { IssuerService } from '../services/IssuerService';
+import { HttpClient } from "@angular/common/http";
+
 
 @Component({
   selector: 'issuer',
@@ -7,20 +9,25 @@ import { IssuerService } from '../services/IssuerService';
   styleUrls: ['./issuer.component.css']
 })
 export class IssuerComponent implements OnInit{
-  public issuer: Issuer = new Issuer();
+  public issuer: Issuer = new Issuer()
+  public marketData: Array<Issuer> = []
 
-  constructor (private service: IssuerService){}
+  constructor (private service: IssuerService){
+  }
+  
 
   ngOnInit() {
     this.getIssuerNow()
   }
 
   public getIssuerNow(): void {
-    this.service.getIssuerNow('AFLT').subscribe(
+    this.service.getIssuerNow('YNDX').subscribe(
       (response: Issuer) => {
         this.issuer = response
       }
     );
+
+    console.log(this.issuer)
   }
 }
 
