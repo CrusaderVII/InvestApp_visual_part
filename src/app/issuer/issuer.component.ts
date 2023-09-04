@@ -1,19 +1,17 @@
-import { Component, OnInit} from '@angular/core';
+import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { IssuerService } from '../services/IssuerService';
-import { HttpClient } from "@angular/common/http";
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'issuer',
   templateUrl: './issuer.component.html',
-  styleUrls: ['./issuer.component.css']
+  styleUrls: ['./issuer.component.css'], 
 })
 export class IssuerComponent implements OnInit{
   public issuer: Issuer = new Issuer()
-  public marketData: Array<Issuer> = []
 
-  constructor (private service: IssuerService){
-  }
+  constructor (private service: IssuerService){} 
   
 
   ngOnInit() {
@@ -21,7 +19,7 @@ export class IssuerComponent implements OnInit{
   }
 
   public getIssuerNow(): void {
-    this.service.getIssuerNow('YNDX').subscribe(
+    this.service.getIssuerNow('GAZP').subscribe(
       (response: Issuer) => {
         this.issuer = response
       }

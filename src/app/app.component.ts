@@ -1,20 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IssuerModule } from './issuer/issuer.module';
-import { HttpClientModule } from "@angular/common/http";
-import { IssuerService } from './services/IssuerService';
-
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [CommonModule, IssuerModule, HttpClientModule],
-  providers: [IssuerService],
+  standalone: true,
+  imports: [IssuerModule, CommonModule, RouterModule],
 })
-export class AppComponent {
-  console = console;
+export class AppComponent{
   title = 'InvestApp';
 }
 

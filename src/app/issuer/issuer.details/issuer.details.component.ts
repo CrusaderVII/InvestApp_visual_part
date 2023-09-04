@@ -1,7 +1,6 @@
-import { Component, Input, OnInit, ViewChild, ElementRef, Inject, AfterViewInit} from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { IssuerService } from '../../services/IssuerService';
 import { Issuer } from '../issuer.component';
-import { DOCUMENT } from '@angular/common';
 import { Chart, registerables } from 'chart.js';
 
 @Component({
@@ -17,15 +16,21 @@ export class IssuerDetailsComponent implements OnInit{
   canvas: ElementRef
   context!: CanvasRenderingContext2D;
 
-  constructor (private service: IssuerService) {}
+  constructor (private service: IssuerService) {
+    this.getIssuerForLastMonth()
+  }
 
   ngOnInit(): void {
     this.getIssuerForLastMonth()
     this.drawChart()
   }
 
+  ngAfterViewInit(): void {
+
+  }
+
   public getIssuerForLastMonth(): void{
-    this.service.getIssuerForLastMonth('YNDX').subscribe(
+    this.service.getIssuerForLastMonth('GAZP').subscribe(
       (response: Array<Issuer>) => {
         this.marketData = response
       })

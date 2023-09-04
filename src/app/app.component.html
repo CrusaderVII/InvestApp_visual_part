@@ -5,41 +5,19 @@
 <main>
     <body>
         <header class="main-header">
-        <div class="search-container">
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <input type="text" class="search-box" placeholder="Search issuer...">
-        </div>
-    </header>
-    <section class="content">
-      <issuer></issuer>
-    </section>
+            <div class="search-container">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" class="search-box" placeholder="Search issuer...">
+            </div>
+
+            <a href="register">register</a>
+        </header>
+
+    <router-outlet></router-outlet>
+    
     <div>
         <canvas id="myChart"></canvas>
-      </div>
+    </div>
       
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      
-      <script>
-        const ctx = document.getElementById('myChart');
-      
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
-      </script>
     </body>
 </main>

@@ -11,7 +11,7 @@
   border-bottom: 2px solid #CCCCCC;
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   z-index: 99;
   margin-top: 15px;
 }

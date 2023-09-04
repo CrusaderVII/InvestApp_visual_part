@@ -1,27 +1,27 @@
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { IssuerComponent } from "./issuer.component";
 import { FormsModule } from "@angular/forms";
 import { IssuerService } from "../services/IssuerService";
 import { CommonModule } from "@angular/common";
-import { IssuerDetaislModule } from "./issuer.details/issuer.details.module";
-import { RouterModule } from '@angular/router'
+import { RegistrationComponent } from "./registration.component";
+import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule ({
     imports: [
         HttpClientModule,
         FormsModule,
         CommonModule,
-        IssuerDetaislModule,
-        RouterModule
+        RouterModule,
+        BrowserModule
     ],
 
     declarations: [
-        IssuerComponent
+        RegistrationComponent
     ],
 
     exports: [
-        IssuerComponent
+        RegistrationComponent
     ],
 
     providers: [
@@ -29,4 +29,4 @@ import { RouterModule } from '@angular/router'
     ]
 
 })
-export class IssuerModule{}
+export class RegistrationModule{}
