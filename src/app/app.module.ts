@@ -8,6 +8,7 @@ import { FormsModule } from "@angular/forms";
 import { IssuerDetaislModule } from "./issuer/issuer.details/issuer.details.module";
 import { RouterModule } from '@angular/router'
 import { IssuerComponent } from "./issuer/issuer.component";
+import "@fontsource/krona-one";
 
 
 @NgModule({
