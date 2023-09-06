@@ -1,6 +1,6 @@
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { IssuerService } from "../services/IssuerService";
 import { CommonModule } from "@angular/common";
 import { RegistrationComponent } from "./registration.component";
@@ -11,9 +11,8 @@ import { BrowserModule } from '@angular/platform-browser';
     imports: [
         HttpClientModule,
         FormsModule,
-        CommonModule,
         RouterModule,
-        BrowserModule
+        CommonModule
     ],
 
     declarations: [
@@ -25,7 +24,7 @@ import { BrowserModule } from '@angular/platform-browser';
     ],
 
     providers: [
-        IssuerService
+        
     ]
 
 })

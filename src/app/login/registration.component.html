@@ -3,52 +3,35 @@
 </head>
 <body>
     <div class="container">
-        <div class="register-form">
-            <form class="input-fields" action="register">
-                <div>
-
-                </div>
-                <div class="right-box">
-                    <div class="title">Sign up for InvestApp</div>
-                    <div class="input-fields">
-                        <label>Name</label>
-                        <input type="text" placeholder="John">
-                    </div>
-                    <div class="input-fields">
-                        <label>Email</label>
-                        <input type="text" placeholder="johndoe@gmail.com">
-                    </div>
-                    <div class="input-fields">
-                        <label>Password</label>
-                        <input type="text" placeholder="6+ charcters">
-                    </div>
-
-                    <button>Create account</button>
-                </div>
-            </form>
-            <!-- <div class="left-box"></div>
+        <div class="register-container">
+            <div class="left-box">
+                <h1>Discover the world's top investments.</h1>
+                <img src="/assets/cat.jpg">
+            </div>
             <div class="right-box">
-                <div class="title">Sign up for InvestApp</div> 
-                <div>
-                    <form class="input-fields" action="register">
-                        <div class="field-container">
-                            <label>Name</label>
-                            <input type="text" placeholder="John">
-                        </div>
-                        <div class="field-container">
-                            <label>Email</label>
-                            <input type="text" placeholder="johndoe@gmail.com">
-                        </div>
-                        <div class="field-container">
-                            <label>Password</label>
-                            <input type="text" placeholder="6+ characters">
-                        </div>
-                        <div class="button">
-                            <button>Create account</button>
-                        </div>
-                    </form>
-                </div>
-            </div> -->
+                <form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)" action="" class="input-form" >
+                    <div class="title">
+                        <h1>Sign up to InvestApp</h1>
+                    </div>
+                    
+                    <label>Name</label>
+                    <input type="text" ngModel name="name" placeholder="John">
+
+                    <label>Email</label>
+                    <input type="text" ngModel name="email" placeholder="johndoe@gmail.com">
+
+                    <label>Password</label>
+                    <input type="password" ngModel name="password" placeholder="6+ characters">
+
+                    <div class="policy">
+                        <input type="checkbox">
+                        <label>Creating an account means you’re okay with our and our default Terms of Service, Privacy Policy, Notification Settings</label>
+                    </div>
+
+                    <input class="create-btn" type="submit" value="Create account">
+                </form>
+            </div>
+            
         </div>
     </div>
 </body>
