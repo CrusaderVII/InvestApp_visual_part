@@ -19,6 +19,7 @@ body {
   padding: 0;
   background: rgb(171,188,232);
   background: linear-gradient(90deg, rgba(171,188,232,1) 0%, rgba(214,153,222,1) 100%);
+  overflow: hidden;
 }
 
 button.primary {
