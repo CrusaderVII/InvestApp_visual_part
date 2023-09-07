@@ -6,6 +6,7 @@ import { CommonModule } from "@angular/common";
 import { RegistrationComponent } from "./registration.component";
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { UserService } from "../services/UserService";
 
 @NgModule ({
     imports: [
@@ -24,7 +25,7 @@ import { BrowserModule } from '@angular/platform-browser';
     ],
 
     providers: [
-        
+        UserService
     ]
 
 })

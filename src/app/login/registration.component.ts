@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../services/UserService';
 
 
 @Component({
@@ -9,8 +10,11 @@ import { FormsModule } from '@angular/forms';
     styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent{
-    addUser(user: any) {
-        console.log(user)
+
+    constructor(private userService: UserService){}
+
+    addUser(user: User): void {
+        this.userService.addUser(user)
     }
 }
 

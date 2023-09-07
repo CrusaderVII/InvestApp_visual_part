@@ -9,7 +9,8 @@
                 <img src="/assets/cat.jpg">
             </div>
             <div class="right-box">
-                <form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)" action="" class="input-form" >
+                <form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)" onsubmit="window.location='';" 
+                class="input-form" >
                     <div class="title">
                         <h1>Sign up to InvestApp</h1>
                     </div>
