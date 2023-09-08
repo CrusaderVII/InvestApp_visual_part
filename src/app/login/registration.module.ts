@@ -7,6 +7,7 @@ import { RegistrationComponent } from "./registration.component";
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { UserService } from "../services/UserService";
+import { GlobalService } from "../services/GlobalService";
 
 @NgModule ({
     imports: [
@@ -25,7 +26,8 @@ import { UserService } from "../services/UserService";
     ],
 
     providers: [
-        UserService
+        UserService,
+        GlobalService
     ]
 
 })

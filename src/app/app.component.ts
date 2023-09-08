@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IssuerModule } from './issuer/issuer.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { RegistrationModule } from './login/registration.module';
+import { GlobalService } from './services/GlobalService';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,17 @@ import { RegistrationModule } from './login/registration.module';
   styleUrls: ['./app.component.css'],
   standalone: true,
   imports: [IssuerModule, CommonModule, RouterModule, FormsModule, RegistrationModule],
+  providers: [GlobalService]
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
   title = 'InvestApp';
+
+  constructor(private globalService: GlobalService){}
+
+  loggedStatus = this.globalService.loggedStatus
+
+  ngOnInit(): void {
+    console.log(this.loggedStatus)
+  }
 }
 
