@@ -23,12 +23,12 @@
             </div>
             
             
-            <div *ngIf="loggedStatus==false" class="register-container">
-                <a class="register-link" href="register"><i class="fa fa-user" aria-hidden="true"></i>Login</a>
+            <div *ngIf="userName==null" class="register-container">
+                <a class="register-link" href="login"><i class="fa fa-user" aria-hidden="true"></i>Login</a>
             </div>
-            <ng-template #elseBlock>
-                <a class="register-link" href="register"><i class="fa fa-user" aria-hidden="true"></i>Lalala</a>
-            </ng-template>
+            <div *ngIf="userName!=null" class="register-container">
+                <a class="register-link" href="login"><i class="fa fa-user" aria-hidden="true"></i>{{userName}}</a>
+            </div>
 
         </header>
 

@@ -51,10 +51,12 @@
   border: rgb(171,188,232);
   border: linear-gradient(90deg, rgba(171,188,232,1) 0%, rgba(214,153,222,1) 100%);
   margin-left: 30px;
+  transition: 0.4s;
 }
 
 .header-link:hover {
-  border: 2px solid  black;
+  color: white;
+  background-color: black;
   
 }
 

@@ -3,6 +3,7 @@ import { RegistrationComponent } from './login/registration.component';
 import { IssuerComponent } from './issuer/issuer.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 const routeConfig: Routes = [
     {
@@ -14,6 +15,12 @@ const routeConfig: Routes = [
         path: 'register',
         component: RegistrationComponent,
         title: 'Register'
+    },
+
+    {
+        path: 'login',
+        component: LoginComponent,
+        title: 'Login'
     },
 
     {

@@ -12,12 +12,10 @@ import { GlobalService } from '../services/GlobalService';
 })
 export class RegistrationComponent{
 
-    constructor(private userService: UserService, private globalService: GlobalService){}
+    constructor(private userService: UserService){}
 
     addUser(user: User): void {
         this.userService.addUser(user)
-
-        this.globalService.setLoggedStatus(true)
     }
 }
 

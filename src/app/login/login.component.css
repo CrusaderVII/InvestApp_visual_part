@@ -1,0 +1,105 @@
+
+
+.container {
+    width: 100%;
+    height: 80vh;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.register-container {
+    width: 70%;
+    height: 100%;
+    background: white;
+    border-radius: 5vh;
+    display: flex
+}
+
+.left-box {
+    height: 100%;
+    width: 45%;
+    background-color: #c4ddf5;
+    border-top-left-radius: 5vh;
+    border-bottom-left-radius: 5vh;
+    padding-left: 4vh;
+    padding-top: 4vh;
+}
+
+.left-box h1 {
+    color: #4f4f4f;
+}
+
+.left-box img {
+    width: 100%;
+    margin-top: 40%;
+}
+
+.right-box {
+    padding-left: 5vh;
+    padding-top: 4vh;
+    width: 55%;
+}
+
+.input-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-form .title {
+    padding-bottom: 6vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.input-form label {
+    margin-top: 4vh;
+    font-size: medium;
+    font-weight: bold;
+    padding-bottom: 2vh;
+}
+
+.input-form input {
+    width: 70%;
+    height: 5vh;
+    background-color: #EEF0F2;
+    border-radius: 1vh;
+    outline: none;
+    border: none;
+    padding-left: 2vh;
+    font-size: large;
+}
+.input-form .policy {
+    margin-top: 2vh;
+}
+
+.input-form .policy input {
+    height: 2vh;
+    width: auto;
+    margin-top: 1vh;
+}
+
+.input-form .policy label {
+    font-size: smaller;
+    font-weight: lighter;
+    padding-left: 1vh;
+}
+
+.input-form .create-btn {
+    background-color: black;
+    color: white;
+    width: 35%;
+    text-align: center;
+    padding: 0;
+    margin-top: 2vh;
+    transition: 0.4s;
+}
+
+.input-form .create-btn:hover {
+    background-color: #FE7E73;
+    cursor: pointer;
+}

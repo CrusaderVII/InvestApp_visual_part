@@ -12,4 +12,5 @@ export class GlobalService {
 
         console.log(`${this.loggedStatus}-service`)
     }
+
 }
