@@ -4,6 +4,7 @@ import { IssuerComponent } from './issuer/issuer.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { MarketComponent } from './market/market.component';
 
 const routeConfig: Routes = [
     {
@@ -24,9 +25,10 @@ const routeConfig: Routes = [
     },
 
     {
-        path: 'markets',
-        component: IssuerComponent
-    }
+        path: 'market',
+        component: MarketComponent
+    },
+
 ];
 
 export default routeConfig;
