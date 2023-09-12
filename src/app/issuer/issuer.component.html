@@ -1,17 +1,17 @@
 <body>
   <div class="issuer-header">
     <div class="left-box">
-      <div class="company-name">
-        <h1 class="ticker">{{issuer.shortName}}</h1>
-        <h1 class="name">{{issuer.fullName}}</h1>
+      <div class="company-name" *ngIf="issuer | async as issuerData">
+        <h1 class="ticker">{{issuerData.shortName}}</h1>
+        <h1 class="name">{{issuerData.fullName}}</h1>
       </div>
-      <div class="price">
-        <h1 class="amount">{{issuer.priceNow}}</h1>
-        <div *ngIf="issuer.percent>0; else elseBlock">
-          <h1 class="percent-positive">{{issuer.percent}}%</h1>
+      <div class="price" *ngIf="issuer | async as issuerData">
+        <h1 class="amount">{{issuerData.priceNow}}</h1>
+        <div *ngIf="issuerData.percent>0; else elseBlock">
+          <h1 class="percent-positive">{{issuerData.percent}}%</h1>
         </div>
         <ng-template #elseBlock>
-          <h1 class="percent-negative">{{issuer.percent}}%</h1>
+          <h1 class="percent-negative">{{issuerData.percent}}%</h1>
         </ng-template>
       </div>
     </div>
@@ -23,7 +23,7 @@
     </div>   
   </div>
   
-  <section>
-    <issuer-details [issuer]="issuer"></issuer-details>
+  <section *ngIf="issuer | async as issuerData">
+    <issuer-details [issuer]="issuerData"></issuer-details>
   </section>
 </body>

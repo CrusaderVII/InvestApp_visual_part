@@ -16,13 +16,14 @@ export class LoginComponent {
             response => {
                 console.log('login')
 
-                if (response.name==='not found'){
-                    console.log('error')
+                if (response.email==''){
                     window.location.href='login'
+                } else {
+                    this.userService.setUserData(response.name, response.email)
+                    window.location.href=''
                 }
 
-                this.userService.setUserData(response.name, response.email)
-                window.location.href=''
+                
             }
         )
     }

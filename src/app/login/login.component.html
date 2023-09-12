@@ -12,21 +12,20 @@
                 <form #userForm="ngForm" (ngSubmit)="loginUser(userForm.value.email, userForm.value.password)" 
                 class="input-form" >
                     <div class="title">
-                        <h1>Log in to InvestApp</h1>
+                        <h1>Login to InvestApp</h1>
                     </div>
 
                     <label>Email</label>
-                    <input type="text" ngModel name="email" placeholder="johndoe@gmail.com">
+                    <input type="text" ngModel name="email" placeholder="Enter email...">
 
                     <label>Password</label>
-                    <input type="password" ngModel name="password" placeholder="6+ characters">
+                    <input type="password" ngModel name="password" placeholder="Enter password...">
 
-                    <div class="policy">
-                        <input type="checkbox">
-                        <label>Creating an account means you’re okay with our and our default Terms of Service, Privacy Policy, Notification Settings</label>
+                    <div style="padding-bottom: 4vh; padding-top: 4vh;">
+                        <a href="register">Dot't have account yet?</a>
                     </div>
 
-                    <input class="create-btn" type="submit" value="Logint">
+                    <input class="create-btn" type="submit" value="Login">
                 </form>
             </div>
             
