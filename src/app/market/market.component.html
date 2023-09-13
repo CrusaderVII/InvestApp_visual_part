@@ -3,6 +3,13 @@
 </head>
 <body>
     <div class="main-issuers-container">
-
+        <ul>
+            <li *ngFor="let issuer of mainIssuers">
+                {{issuer.shortName}}   {{issuer.priceNow}}
+            </li>
+        </ul>
+        
     </div>
+
+    
 </body>

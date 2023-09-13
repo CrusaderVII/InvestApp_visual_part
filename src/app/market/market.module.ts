@@ -4,12 +4,15 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { MarketComponent } from "./market.component";
 import { IssuerService } from "../services/IssuerService";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
 
 @NgModule ({
     imports: [
-        HttpClientModule,
         CommonModule,
-        RouterModule
+        HttpClientModule,
+        RouterModule,
+        FormsModule
     ],
 
     declarations: [

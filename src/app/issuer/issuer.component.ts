@@ -39,3 +39,8 @@ export class Issuer {
 	percent: number;
   date: string;
 }
+
+export class IssuerMetadata {
+  shortName: string;
+  fullName: string;
+}

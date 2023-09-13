@@ -4,18 +4,19 @@ import { IssuerModule } from './issuer/issuer.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { RegistrationModule } from './login/registration.module';
-import { GlobalService } from './services/GlobalService';
 import { UserService } from './services/UserService';
 import { LoginModule } from './login/login.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { MarketModule } from './market/market.module';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [IssuerModule, CommonModule, RouterModule, 
-            FormsModule, RegistrationModule, LoginModule],
-  providers: [GlobalService]
+  imports: [IssuerModule, CommonModule, RouterModule, MarketModule,
+            FormsModule, RegistrationModule, LoginModule,],
+  providers: []
 })
 export class AppComponent implements OnInit{
   title = 'InvestApp';

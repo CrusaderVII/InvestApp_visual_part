@@ -15,6 +15,10 @@ export class IssuerService {
         return this.http.get<Issuer>(`${this.apiServerURL}now?secId=${secId}`)
     }
 
+    public getMainIssuersNow(): Observable<Array<Issuer>> {
+        return this.http.get<Array<Issuer>>(`${this.apiServerURL}main/now`)
+    }
+
     public getIssuerForLastMonth (secId: string): Observable<Array<Issuer>> {
         return this.http.get<Array<Issuer>>(`${this.apiServerURL}last-month?secId=${secId}`)
     }

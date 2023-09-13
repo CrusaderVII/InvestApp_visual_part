@@ -6,6 +6,5 @@ body {
     width: 100%;
     height: 50vh;
     border-bottom: 2px solid #CCCCCC;
-    overflow: hidden;
     display: flex;
 }
