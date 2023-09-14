@@ -11,11 +11,7 @@ import { CommonModule } from "@angular/common";
 })
 export class MarketComponent implements OnInit, OnDestroy{
     mainIssuers: Array<Issuer>
-    simpleIssuers: Observable<Array<Issuer>>
-
-    test = [
-        1, 2, 3, 4, 5
-    ]
+    simpleIssuers: Array<Issuer>
 
     subscription: Subscription
 
@@ -26,6 +22,12 @@ export class MarketComponent implements OnInit, OnDestroy{
             switchMap(() => this.service.getMainIssuersNow())
         ).subscribe(
             (data: Issuer[]) => { this.mainIssuers = data }
+        )
+
+        this.subscription = timer(0, 15000).pipe(
+            switchMap(() => this.service.getStock())
+        ).subscribe(
+            (data: Issuer[]) => { this.simpleIssuers = data.slice(0, 9)}
         )
     }
 

@@ -7,19 +7,24 @@ import { Issuer } from "../issuer/issuer.component";
     providedIn: 'root'
 })
 export class IssuerService {
-    private apiServerURL = 'http://localhost:8070/investapp.com/issuer/'
+    private apiServerIssuerURL = 'http://localhost:8070/investapp.com/issuer/'
+    private apiServerURL = 'http://localhost:8070/investapp.com/'
 
     constructor(private http: HttpClient) { }
 
     public getIssuerNow (secId: string): Observable<Issuer> {
-        return this.http.get<Issuer>(`${this.apiServerURL}now?secId=${secId}`)
+        return this.http.get<Issuer>(`${this.apiServerIssuerURL}now?secId=${secId}`)
     }
 
     public getMainIssuersNow(): Observable<Array<Issuer>> {
-        return this.http.get<Array<Issuer>>(`${this.apiServerURL}main/now`)
+        return this.http.get<Array<Issuer>>(`${this.apiServerIssuerURL}main/now`)
     }
 
     public getIssuerForLastMonth (secId: string): Observable<Array<Issuer>> {
-        return this.http.get<Array<Issuer>>(`${this.apiServerURL}last-month?secId=${secId}`)
+        return this.http.get<Array<Issuer>>(`${this.apiServerIssuerURL}last-month?secId=${secId}`)
+    }
+
+    public getStock (): Observable<Array<Issuer>> {
+        return this.http.get<Array<Issuer>>(`${this.apiServerURL}stock`)
     }
 }

@@ -2,9 +2,80 @@ body {
     background-color: white;
 }
 
+.container {
+    background-color: transparent;
+    display: block;
+}
+
 .main-issuers-container {
     width: 100%;
     height: 50vh;
     border-bottom: 2px solid #CCCCCC;
     display: flex;
+}
+
+.all-issuers-container {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    background-color: transparent;
+}
+
+.all-issuers-container ul{
+    width: 100%;
+}
+
+.simple-issuer-container {
+    display: flex;
+    width: 100%;
+    height: 8vh;
+    border-bottom: 2px solid #CCCCCC;
+    align-items: center;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    justify-content: space-between;
+}
+
+.simple-issuer-container a {
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+}
+
+.left-box {
+    width: 14%;
+    align-items: center;
+    display: flex;
+}
+
+.left-box .full-name{
+    font-size: medium;
+    color: #858585;
+    margin-left: 3vh;
+}
+
+.if-container {
+    width: 14%; 
+}
+
+.right-box-negative {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #F25022;
+}
+
+.right-box-positive {
+    display: flex;
+    justify-content: space-between;
+    width: 14%;
+    color: #7FBA00;
+}
+
+.percent {
+    font-size:large;
+}
+
+li + li {
+    margin-top: 2vh;
 }

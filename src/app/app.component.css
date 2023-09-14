@@ -24,6 +24,10 @@
   font-family:"Krona one";
 }
 
+.logo-container h1 {
+  cursor: pointer;
+}
+
 .links-container {
   align-items: center;
   width: 50%;

@@ -2,14 +2,38 @@
     <base href="market">
 </head>
 <body>
-    <div class="main-issuers-container">
-        <ul>
-            <li *ngFor="let issuer of mainIssuers">
-                {{issuer.shortName}}   {{issuer.priceNow}}
-            </li>
-        </ul>
-        
+    <div class="container">
+        <div class="main-issuers-container">
+            <ul>
+                <li *ngFor="let issuer of mainIssuers">
+                    {{issuer.shortName}}     {{issuer.priceNow}}
+                </li>
+            </ul>
+            
+        </div>
+        <div class="all-issuers-container">
+            <ul>
+                <div *ngFor="let issuer of simpleIssuers" class="simple-issuer-container">
+                    <div class="left-box">
+                       <a href="market/issuer">{{issuer.shortName}}</a> 
+                       <a class="full-name" href="market/issuer">{{issuer.fullName}}</a> 
+                    </div>
+                    
+                    <div class="if-container" *ngIf="issuer.percent<0; else elseBlock">
+                        <div class="right-box-negative">
+                            <h2>{{issuer.priceNow}}</h2>
+                            <h2 class="percent">{{issuer.percent}}%</h2>
+                        </div>
+                    </div>
+                    <ng-template #elseBlock>
+                        <div class="right-box-positive">
+                            <h2>{{issuer.priceNow}}</h2>
+                            <h2 class="percent">{{issuer.percent}}%</h2>
+                        </div>
+                    </ng-template>
+                </div>
+            </ul>
+        </div>
     </div>
-
     
 </body>
