@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { IssuerService } from '../services/IssuerService';
-import { RouterModule } from '@angular/router';
+import { RouterModule, ActivatedRoute } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { timer } from 'rxjs';
 
@@ -12,20 +12,20 @@ import { timer } from 'rxjs';
 })
 export class IssuerComponent implements OnInit{
   public issuer: Observable<Issuer>
+  public issuerShortName: string | null
 
-  constructor (private service: IssuerService){} 
+  constructor (private service: IssuerService, private activatedRoute: ActivatedRoute){} 
   
 
   ngOnInit() {
-    this.issuer = timer(0, 1500).pipe(
-      switchMap(() => this.service.getIssuerNow('GAZP'))
+    this.issuerShortName = this.activatedRoute.snapshot.paramMap.get("secId")
+
+    this.issuer = timer(0, 15000).pipe(
+      switchMap(() => this.service.getIssuerNow(this.issuerShortName!))
     )
   }
 
   public getIssuerNow(): void {
-    
-
-    console.log(this.issuer)
   }
 }
 

@@ -29,6 +29,11 @@ const routeConfig: Routes = [
         component: MarketComponent
     },
 
+    {
+        path: 'market/issuer/:secId',
+        component: IssuerComponent
+    }
+
 ];
 
 export default routeConfig;
