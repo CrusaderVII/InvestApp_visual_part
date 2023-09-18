@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef, numberAttribute } from '@angular/core';
 import { IssuerService } from '../../services/IssuerService';
 import { Issuer } from '../issuer.component';
 import { Chart, registerables } from 'chart.js';
@@ -10,6 +10,7 @@ import { Chart, registerables } from 'chart.js';
   })
 export class IssuerDetailsComponent implements OnInit{
   @Input() issuer: Issuer
+  issuerShortName: string
   marketData: Array<Issuer> = []
 
   @ViewChild('chart', {static: true}) 
@@ -21,24 +22,24 @@ export class IssuerDetailsComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.issuerShortName = localStorage.getItem('currentIssuerShortName')!
+    console.log(this.issuerShortName)
     this.getIssuerForLastMonth()
-    this.drawChart()
-  }
-
-  ngAfterViewInit(): void {
-
   }
 
   public getIssuerForLastMonth(): void{
-    this.service.getIssuerForLastMonth('GAZP').subscribe(
+    this.service.getIssuerForLastMonth(this.issuerShortName).subscribe(
       (response: Array<Issuer>) => {
         this.marketData = response
+
+        this.drawChart(response)
       })
   }
 
-  private drawChart():void {
+  private drawChart(data: Array<Issuer>):void {
+    data.reverse()
+
     const canvas: HTMLCanvasElement = this.canvas.nativeElement;
-    const context = canvas.getContext("2d")
 
     Chart.register(...registerables)
 
@@ -48,20 +49,27 @@ export class IssuerDetailsComponent implements OnInit{
     new Chart(canvas, {
       type: 'line',
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'Jsune', 'July', 'Augst', 'September', 'November', 'December'],
+        labels: data.map((issuer: Issuer) => issuer.date),
         datasets: [{
-          data: [12, 19, 3, 5, 2, 3],
+          data: data.map((issuer: Issuer) => issuer.priceOpen),
           borderWidth: 1
         }]
       },
       options: {
         scales: {
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            min: this.getMin(data.at(0)!.priceOpen)
           }
         }
       }
     });
+  }
+
+  getMin(priceOpen: number): number {
+    const getNumDigits = (num: number): number => Math.floor(Math.log10(num));
+
+    return priceOpen - Math.pow(10, getNumDigits(priceOpen)-1);
   }
 }
 

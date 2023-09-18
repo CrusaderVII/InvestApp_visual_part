@@ -19,7 +19,8 @@ export class IssuerComponent implements OnInit{
 
   ngOnInit() {
     this.issuerShortName = this.activatedRoute.snapshot.paramMap.get("secId")
-
+    localStorage.setItem('currentIssuerShortName', this.issuerShortName!)
+    
     this.issuer = timer(0, 15000).pipe(
       switchMap(() => this.service.getIssuerNow(this.issuerShortName!))
     )
