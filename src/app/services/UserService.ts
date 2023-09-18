@@ -36,6 +36,10 @@ export class UserService implements OnInit{
         return localStorage.getItem('name')!
     }
 
+    public getUserEmail(): string {
+        return localStorage.getItem('email')!
+    }
+
     public setUserData(name: string, email: string) {
         localStorage.setItem('name', name)
         localStorage.setItem('email', email)

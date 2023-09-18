@@ -59,17 +59,24 @@ export class IssuerDetailsComponent implements OnInit{
         scales: {
           y: {
             beginAtZero: true,
-            min: this.getMin(data.at(0)!.priceOpen)
+            min: this.getMin(data.map((issuer: Issuer) => issuer.priceOpen).sort().at(1)!),
+            max: this.getMax(data.map((issuer: Issuer) => issuer.priceOpen).sort().reverse().at(1)!),
           }
         }
       }
     });
   }
 
-  getMin(priceOpen: number): number {
-    const getNumDigits = (num: number): number => Math.floor(Math.log10(num));
+  getMin(price: number): number {
+    const getNumDigits = (num: number): number => Math.floor(Math.log10(num)-1);
 
-    return priceOpen - Math.pow(10, getNumDigits(priceOpen)-1);
+    return price - Math.pow(10, getNumDigits(price));
+  }
+
+  getMax(price: number): number {
+    const getNumDigits = (num: number): number => Math.floor(Math.log10(num)-1);
+    
+    return price + Math.pow(10, getNumDigits(price))
   }
 }
 
