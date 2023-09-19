@@ -44,4 +44,10 @@ export class UserService implements OnInit{
         localStorage.setItem('name', name)
         localStorage.setItem('email', email)
     }
+
+    public addIssuerToUser(userName: string, secId: string) {
+        
+        this.http.get(`${this.apiServerURL}/mark?userName=${userName}&secId=${secId}`)
+            .subscribe()
+    }
 }

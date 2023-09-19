@@ -6,6 +6,7 @@ import { IssuerService } from "../services/IssuerService";
 import { CommonModule } from "@angular/common";
 import { IssuerDetaislModule } from "./issuer.details/issuer.details.module";
 import { RouterModule } from '@angular/router'
+import { UserService } from "../services/UserService";
 
 @NgModule ({
     imports: [
@@ -25,7 +26,8 @@ import { RouterModule } from '@angular/router'
     ],
 
     providers: [
-        IssuerService
+        IssuerService,
+        UserService
     ]
 
 })

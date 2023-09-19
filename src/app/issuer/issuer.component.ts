@@ -3,6 +3,7 @@ import { IssuerService } from '../services/IssuerService';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { timer } from 'rxjs';
+import { UserService } from '../services/UserService';
 
 
 @Component({
@@ -14,7 +15,9 @@ export class IssuerComponent implements OnInit{
   public issuer: Observable<Issuer>
   public issuerShortName: string | null
 
-  constructor (private service: IssuerService, private activatedRoute: ActivatedRoute){} 
+  constructor (private service: IssuerService, 
+               private userService: UserService, 
+               private activatedRoute: ActivatedRoute){} 
   
 
   ngOnInit() {
@@ -26,7 +29,12 @@ export class IssuerComponent implements OnInit{
     )
   }
 
-  public getIssuerNow(): void {
+  public bookmarkIssuer(): void {
+    if(this.userService.getUserName()==null) {
+      window.location.href='login'
+    } else {
+      this.userService.addIssuerToUser(this.userService.getUserName(), this.issuerShortName!)
+    }
   }
 }
 

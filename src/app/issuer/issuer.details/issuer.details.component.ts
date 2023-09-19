@@ -18,7 +18,6 @@ export class IssuerDetailsComponent implements OnInit{
   context!: CanvasRenderingContext2D;
 
   constructor (private service: IssuerService) {
-    this.getIssuerForLastMonth()
   }
 
   ngOnInit(): void {
