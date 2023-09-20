@@ -45,6 +45,11 @@ export class UserService implements OnInit{
         localStorage.setItem('email', email)
     }
 
+    public logoutUser() {
+        localStorage.removeItem('name')
+        localStorage.removeItem('email')
+    }
+
     public addIssuerToUser(userName: string, secId: string) {
         
         this.http.get(`${this.apiServerURL}/mark?userName=${userName}&secId=${secId}`)

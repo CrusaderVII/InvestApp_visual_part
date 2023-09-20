@@ -21,3 +21,21 @@
 .header-container .email {
     color: #CCCCCC;
 }
+
+.header-container .logout-btn {
+    cursor: pointer;
+    width: 15%;
+    height: 5vh;
+    font-size: larger;
+    transition: 0.4s;
+    border: 2px solid #F25022;
+    border-radius: 3vh;
+    background-color: transparent;
+    color: #F25022;
+    margin-left: 50%;
+}
+
+.header-container .logout-btn:hover {
+    background-color: #F25022;
+    color: white;
+}

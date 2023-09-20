@@ -17,4 +17,9 @@ import { UserService } from '../services/UserService';
         this.userName = this.userService.getUserName()
         this.userEmail = this.userService.getUserEmail()
     }
+
+    public logout() {
+        this.userService.logoutUser()
+        window.location.href = ''
+    } 
 }
