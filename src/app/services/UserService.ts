@@ -2,14 +2,13 @@ import { Injectable, OnInit } from "@angular/core";
 import { User } from "../login/registration.component";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import { IssuerMetadata } from "../issuer/issuer.component";
 
 @Injectable ({
     providedIn: 'root'
 })
 export class UserService implements OnInit{
     private apiServerURL = 'http://localhost:8070/investapp.com/user'
-
-    private readonly user: User;
 
     constructor(private http: HttpClient) {}
 
@@ -52,7 +51,35 @@ export class UserService implements OnInit{
 
     public addIssuerToUser(userName: string, secId: string) {
         
-        this.http.get(`${this.apiServerURL}/mark?userName=${userName}&secId=${secId}`)
+        this.http.get(`${this.apiServerURL}/issuers/mark?userName=${userName}&secId=${secId}`)
             .subscribe()
+    }
+
+    public getUserFavoriteIssuers(userName: string): Observable<Array<IssuerMetadata>>{
+        return this.http.get<Array<IssuerMetadata>>(`${this.apiServerURL}/issuers?userName=${userName}`)
+    }
+
+    public getUserFavoriteIssuersFromStorage(): Array<IssuerMetadata> {
+        const issuers = localStorage.getItem('issuersList')!.split('   ').filter((issuer) => issuer !== '')
+        const result: Array<IssuerMetadata> = []
+
+        issuers?.forEach(issuer => {
+            result.push(new IssuerMetadata(issuer.split('--').at(0)!, issuer.split('--').at(1)!))
+        })
+
+        return result
+    }
+
+    public addUserFavoriteIssuer(issuer: IssuerMetadata) {
+        localStorage.setItem('issuersList', localStorage.getItem('issuersList')+issuer.secId+'--'+issuer.fullName+'   ')
+    }
+
+    public saveUsersFavoriteIssuers(userName: string) {
+        this.getUserFavoriteIssuers(userName).subscribe(issuers => {
+            issuers.forEach(issuer => {
+                localStorage.setItem('issuersList', localStorage.getItem('issuersList')+issuer.secId+'--'+issuer.fullName+'   ')
+            })
+        })
+
     }
 }

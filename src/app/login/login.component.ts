@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { UserService } from "../services/UserService";
 import { User } from "./registration.component";
+import { IssuerMetadata } from "../issuer/issuer.component";
 
 @Component({
     selector: 'login',
@@ -14,16 +15,14 @@ export class LoginComponent {
     loginUser(email: string, password: string) {
         this.userService.getUser(email, password).subscribe(
             response => {
-                console.log('login')
-
                 if (response.email==''){
                     window.location.href='login'
+                    return;
                 } else {
                     this.userService.setUserData(response.name, response.email)
+                    this.userService.saveUsersFavoriteIssuers(response.name)
                     window.location.href=''
                 }
-
-                
             }
         )
     }

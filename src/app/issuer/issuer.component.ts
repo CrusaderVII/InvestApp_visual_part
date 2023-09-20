@@ -50,6 +50,13 @@ export class Issuer {
 }
 
 export class IssuerMetadata {
-  shortName: string;
+  secId: string;
   fullName: string;
+
+  constructor();
+  constructor(secId: string, fullName: string);
+  constructor(secId?: string, fullName?: string) {
+    this.secId = secId!;
+    this.fullName = fullName!;
+  }
 }

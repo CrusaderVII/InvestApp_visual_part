@@ -8,6 +8,7 @@ import { UserService } from './services/UserService';
 import { LoginModule } from './login/login.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { MarketModule } from './market/market.module';
+import { ProfileModule } from './profile/profile.module';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ import { MarketModule } from './market/market.module';
   styleUrls: ['./app.component.css'],
   standalone: true,
   imports: [IssuerModule, CommonModule, RouterModule, MarketModule,
-            FormsModule, RegistrationModule, LoginModule,],
+            FormsModule, RegistrationModule, LoginModule, ProfileModule],
   providers: []
 })
 export class AppComponent implements OnInit{

@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Issuer } from "../issuer/issuer.component";
+import { Issuer, IssuerMetadata } from "../issuer/issuer.component";
 
 @Injectable ({
     providedIn: 'root'
@@ -26,5 +26,9 @@ export class IssuerService {
 
     public getStock (): Observable<Array<Issuer>> {
         return this.http.get<Array<Issuer>>(`${this.apiServerURL}stock`)
+    }
+
+    public getUserIssuersNow(metadata: Array<IssuerMetadata>): Observable<Array<Issuer>> {
+        return this.http.post<Array<Issuer>>(`${this.apiServerIssuerURL}certain`, metadata)
     }
 }

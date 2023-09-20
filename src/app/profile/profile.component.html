@@ -10,5 +10,13 @@
 
             <button class="logout-btn" (click)="logout()">Log out</button>
         </div>
+        <div class="issuers-container">
+            <div *ngFor="let issuer of favoriteIssuers" class="issuer">
+                <h3>{{issuer.shortName}}</h3>
+                <h3>{{issuer.fullName}}</h3>
+                <h3>{{issuer.priceNow}}</h3>
+                <h3>{{issuer.percent}}</h3>
+            </div>
+        </div>
     </div>
 </body>

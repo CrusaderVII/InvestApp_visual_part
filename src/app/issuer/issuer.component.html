@@ -9,7 +9,7 @@
         <div class="price" *ngIf="issuer | async as issuerData">
           <h1 class="amount">{{issuerData.priceNow}}</h1>
           <div *ngIf="issuerData.percent>0; else elseBlock">
-            <h1 class="percent-positive">{{issuerData.percent}}%</h1>
+            <h1 class="percent-positive">+{{issuerData.percent}}%</h1>
           </div>
           <ng-template #elseBlock>
             <h1 class="percent-negative">{{issuerData.percent}}%</h1>
