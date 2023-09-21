@@ -75,6 +75,8 @@ export class UserService implements OnInit{
     }
 
     public saveUsersFavoriteIssuers(userName: string) {
+        localStorage.setItem('issuersList', '')
+
         this.getUserFavoriteIssuers(userName).subscribe(issuers => {
             issuers.forEach(issuer => {
                 localStorage.setItem('issuersList', localStorage.getItem('issuersList')+issuer.secId+'--'+issuer.fullName+'   ')
