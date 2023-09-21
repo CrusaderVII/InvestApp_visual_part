@@ -30,7 +30,7 @@ const routeConfig: Routes = [
     },
 
     {
-        path: 'market/issuer/:secId',
+        path: 'market/issuer/:secId/:fullName',
         component: IssuerComponent
     },
 

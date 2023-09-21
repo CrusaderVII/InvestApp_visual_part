@@ -49,10 +49,13 @@ export class UserService implements OnInit{
         localStorage.removeItem('email')
     }
 
-    public addIssuerToUser(userName: string, secId: string) {
+    public addIssuerToUser(userName: string, secId: string, fullName: string) {
         
         this.http.get(`${this.apiServerURL}/issuers/mark?userName=${userName}&secId=${secId}`)
             .subscribe()
+
+        localStorage.setItem('issuersList', localStorage.getItem('issuersList')+secId+'--'+fullName+'   ')
+        console.log(this.getUserFavoriteIssuersFromStorage())
     }
 
     public getUserFavoriteIssuers(userName: string): Observable<Array<IssuerMetadata>>{
@@ -70,8 +73,17 @@ export class UserService implements OnInit{
         return result
     }
 
+    public setFavoriteIssuersToStorage(issuers: Array<IssuerMetadata>) {
+        localStorage.setItem('issuersList', '')
+
+        issuers.forEach(issuer => {
+            localStorage.setItem('issuersList', localStorage.getItem('issuersList')+issuer.secId+'--'+issuer.fullName+'   ')
+        })
+    }
+
     public addUserFavoriteIssuer(issuer: IssuerMetadata) {
         localStorage.setItem('issuersList', localStorage.getItem('issuersList')+issuer.secId+'--'+issuer.fullName+'   ')
+        console.log(this.getUserFavoriteIssuersFromStorage)
     }
 
     public saveUsersFavoriteIssuers(userName: string) {
@@ -83,5 +95,20 @@ export class UserService implements OnInit{
             })
         })
 
+    }
+
+    public deleteUserFavoriteIssuer(userName: string, secId: string) {
+        const array = this.getUserFavoriteIssuersFromStorage().filter(value => value.secId!=secId)
+        this.setFavoriteIssuersToStorage(array)
+
+        this.http.delete(`${this.apiServerURL}/issuers/delete?userName=${userName}&secId=${secId}`)
+            .subscribe()
+    }
+
+    public conntainsIssuerInBookmarks(secId: string): boolean {
+        const secIds = this.getUserFavoriteIssuersFromStorage()
+                .map((issuerMetadata: IssuerMetadata) => issuerMetadata.secId)
+
+        return secIds.includes(secId)
     }
 }

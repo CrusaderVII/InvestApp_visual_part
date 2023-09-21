@@ -21,7 +21,7 @@ export class LoginComponent {
                 } else {
                     this.userService.setUserData(response.name, response.email)
                     this.userService.saveUsersFavoriteIssuers(response.name)
-                    //window.location.href=''
+                    window.location.href=''
                 }
             }
         )

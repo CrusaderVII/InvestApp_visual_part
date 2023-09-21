@@ -15,8 +15,8 @@
             <ul>
                 <div *ngFor="let issuer of simpleIssuers" class="simple-issuer-container">
                     <div class="left-box">
-                       <a [routerLink]="['/market/issuer', issuer.shortName]">{{issuer.shortName}}</a> 
-                       <a class="full-name" [routerLink]="['/market/issuer', issuer.shortName]">{{issuer.fullName}}</a> 
+                       <a [routerLink]="['/market/issuer', issuer.shortName, issuer.fullName]">{{issuer.shortName}}</a> 
+                       <a class="full-name" [routerLink]="['/market/issuer', issuer.shortName, issuer.fullName]">{{issuer.fullName}}</a> 
                     </div>
                     
                     <div class="if-container" *ngIf="issuer.percent<0; else elseBlock">

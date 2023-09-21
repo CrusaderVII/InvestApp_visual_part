@@ -13,7 +13,8 @@ import { UserService } from '../services/UserService';
 })
 export class IssuerComponent implements OnInit{
   public issuer: Observable<Issuer>
-  public issuerShortName: string | null
+  public issuerShortName: string
+  public issuerFullName: string 
 
   constructor (private service: IssuerService, 
                private userService: UserService, 
@@ -21,11 +22,11 @@ export class IssuerComponent implements OnInit{
   
 
   ngOnInit() {
-    this.issuerShortName = this.activatedRoute.snapshot.paramMap.get("secId")
-    localStorage.setItem('currentIssuerShortName', this.issuerShortName!)
+    this.issuerShortName = this.activatedRoute.snapshot.paramMap.get("secId")!
+    localStorage.setItem('currentIssuerShortName', this.issuerShortName)
     
     this.issuer = timer(0, 15000).pipe(
-      switchMap(() => this.service.getIssuerNow(this.issuerShortName!))
+      switchMap(() => this.service.getIssuerNow(this.issuerShortName))
     )
   }
 
@@ -33,7 +34,13 @@ export class IssuerComponent implements OnInit{
     if(this.userService.getUserName()==null) {
       window.location.href='login'
     } else {
-      this.userService.addIssuerToUser(this.userService.getUserName(), this.issuerShortName!)
+      if( this.userService.conntainsIssuerInBookmarks(this.issuerShortName)) {
+        this.userService.deleteUserFavoriteIssuer(this.userService.getUserName(), this.issuerShortName!)
+      } else{
+        this.userService.addIssuerToUser(this.userService.getUserName(), this.issuerShortName, this.issuerFullName)
+      }
+
+      
     }
   }
 }
