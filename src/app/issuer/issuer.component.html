@@ -17,10 +17,18 @@
         </div>
       </div>
       <div class="right-box">
-        <button class="issuer-header-btn" (click)="bookmarkIssuer()">
-          <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+        
+        <button *ngIf="userService.conntainsIssuerInBookmarks(issuerShortName); else elseBlock" class="issuer-header-btn-pressed" (click)="bookmarkIssuer()">
+          <i class="fa fa-bookmark" aria-hidden="true"></i>
         </button>
-        <button class="issuer-header-btn">Chart</button>
+        
+        <ng-template #elseBlock>
+          <button class="issuer-header-btn" (click)="bookmarkIssuer()">
+            <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+          </button>
+        </ng-template>
+        
+        <button class="issuer-header-chart-btn">Chart</button>
       </div>   
     </div>
     

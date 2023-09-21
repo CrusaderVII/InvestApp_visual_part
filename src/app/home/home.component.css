@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    background-color: #10093d;
+    background-color: black;
     display: block;
 }
 
@@ -61,7 +61,7 @@
 
 .right-box .market:hover {
     background-color: white;
-    color: #10093d;
+    color: black;
 }
 
 .content-container {
@@ -120,7 +120,7 @@
 
 .experts-container {
     display: flex;
-    background-color: #10093d;
+    background-color: black;
     padding-left: 15%;
     padding-right: 15%;
     justify-content: space-between;
@@ -160,5 +160,5 @@
 
 .experts-container .left-box a:hover {
     background-color: white;
-    color: #10093d;
+    color: black;
 }

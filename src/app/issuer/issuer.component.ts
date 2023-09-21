@@ -17,7 +17,7 @@ export class IssuerComponent implements OnInit{
   public issuerFullName: string 
 
   constructor (private service: IssuerService, 
-               private userService: UserService, 
+               public userService: UserService, 
                private activatedRoute: ActivatedRoute){} 
   
 

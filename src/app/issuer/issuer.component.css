@@ -34,6 +34,7 @@
 }
 
 .issuer-header-btn{
+   cursor: pointer;
    display: inline-block;
    height: 70%;
    border: 2px solid #7FBA00;
@@ -48,12 +49,50 @@
    font-size: 25px;
 }
 
-.issuer-header-btn + .issuer-header-btn{
-   margin-left: 30px;
+.issuer-header-btn-pressed{
+   cursor: pointer;
+   display: inline-block;
+   height: 70%;
+   border: 2px solid #7FBA00;
+   border-radius: 30px;
+   align-items: center;
+   width: 30%;
+   text-align: center;
+   text-transform: uppercase;
+   color: white;
+   background-color: #7FBA00;
+   transition: .4s;
+   font-size: 25px;
+}
+
+.issuer-header-chart-btn{
+   cursor: pointer;
+   margin-left: 4vh;
    width: 65%;
+   display: inline-block;
+   height: 70%;
+   border: 2px solid #7FBA00;
+   border-radius: 30px;
+   align-items: center;
+   text-align: center;
+   text-transform: uppercase;
+   color: #7FBA00;
+   background-color: white;
+   transition: 0.4s;
+   font-size: 25px;
 }
 
 .issuer-header-btn:hover {
+   color: white;
+   background-color: #7FBA00;
+}
+
+.issuer-header-btn-pressed:hover {
+   color: #7FBA00;
+   background-color: white;
+}
+
+.issuer-header-chart-btn:hover {
    color: white;
    background-color: #7FBA00;
 }
