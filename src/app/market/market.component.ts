@@ -3,6 +3,7 @@ import { Observable, switchMap, timer, Subscription } from "rxjs";
 import { Issuer } from "../issuer/issuer.component";
 import { IssuerService } from "../services/IssuerService";
 import { CommonModule } from "@angular/common";
+import { RouterLink } from "@angular/router";
 
 @Component({
     selector: 'market',
@@ -33,6 +34,10 @@ export class MarketComponent implements OnInit, OnDestroy{
 
     ngOnDestroy(): void {
         this.subscription.unsubscribe()
+    }
+
+    public goLink(shortName: string, fullName:string) {
+        window.location.href=`market/issuer/${shortName}/${fullName}`
     }
 
 }

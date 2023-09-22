@@ -4,12 +4,40 @@
 <body>
     <div class="container">
         <div class="main-issuers-container">
-            <ul>
-                <li *ngFor="let issuer of mainIssuers">
-                    {{issuer.shortName}}     {{issuer.priceNow}}
-                </li>
-            </ul>
-            
+            <div class="main-issuers-inner-container">
+                <div *ngFor="let issuer of mainIssuers.slice(0, 3)" class="main-issuer" (click)="goLink(issuer.shortName, issuer.fullName)">
+                    <a [routerLink]="['/market/issuer', issuer.shortName, issuer.fullName]"><h1>{{issuer.shortName}}</h1></a>
+                    <h3>{{issuer.fullName}}</h3>
+
+                    <div style="color: #F25022;" class="price-container" *ngIf="issuer.percent<0; else elseBlock">
+                        <h1>{{issuer.priceNow}}</h1>
+                        <h3>{{issuer.percent}}%</h3>
+                    </div>
+                    <ng-template #elseBlock>
+                        <div style="color: #7FBA00;" class="price-container">
+                            <h1>{{issuer.priceNow}}</h1>
+                            <h3>+{{issuer.percent}}%</h3>
+                        </div>
+                    </ng-template>
+                </div> 
+            </div>
+            <div class="main-issuers-inner-container">
+                <div *ngFor="let issuer of mainIssuers.slice(3)" class="main-issuer" (click)="goLink(issuer.shortName, issuer.fullName)">
+                    <a [routerLink]="['/market/issuer', issuer.shortName, issuer.fullName]"><h1>{{issuer.shortName}}</h1></a>
+                    <h3>{{issuer.fullName}}</h3>
+
+                    <div style="color: #F25022;" class="price-container" *ngIf="issuer.percent<0; else elseBlock">
+                        <h1>{{issuer.priceNow}}</h1>
+                        <h3>{{issuer.percent}}%</h3>
+                    </div>
+                    <ng-template #elseBlock>
+                        <div style="color: #7FBA00;" class="price-container">
+                            <h1>{{issuer.priceNow}}</h1>
+                            <h3>+{{issuer.percent}}%</h3>
+                        </div>
+                    </ng-template>
+                </div> 
+            </div>
         </div>
         <div class="all-issuers-container">
             <ul>
