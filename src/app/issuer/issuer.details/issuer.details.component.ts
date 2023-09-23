@@ -22,7 +22,6 @@ export class IssuerDetailsComponent implements OnInit{
 
   ngOnInit(): void {
     this.issuerShortName = localStorage.getItem('currentIssuerShortName')!
-    console.log(this.issuerShortName)
     this.getIssuerForLastMonth()
   }
 
@@ -35,15 +34,29 @@ export class IssuerDetailsComponent implements OnInit{
       })
   }
 
+  public getIssuerForLastWeek(): void {
+    this.service.getIssuerForLastWeek(this.issuerShortName).subscribe(
+      (response) => {
+        this.marketData = response
+        console.log('lolo')
+        this.drawChart(response)
+      }
+    )
+  }
+
   private drawChart(data: Array<Issuer>):void {
     data.reverse()
 
     const canvas: HTMLCanvasElement = this.canvas.nativeElement;
-
+    
     Chart.register(...registerables)
 
     Chart.defaults.borderColor = '#CCCCCC';
-    Chart.defaults.color = '#D699DE';
+    Chart.defaults.color = 'black';
+
+    if (Chart.getChart(canvas)) {
+      Chart.getChart(canvas)?.destroy();
+    }
 
     new Chart(canvas, {
       type: 'line',
@@ -51,7 +64,8 @@ export class IssuerDetailsComponent implements OnInit{
         labels: data.map((issuer: Issuer) => issuer.date),
         datasets: [{
           data: data.map((issuer: Issuer) => issuer.priceOpen),
-          borderWidth: 1
+          borderWidth: 1,
+          fill: true,
         }]
       },
       options: {
@@ -60,6 +74,16 @@ export class IssuerDetailsComponent implements OnInit{
             beginAtZero: true,
             min: this.getMin(data.map((issuer: Issuer) => issuer.priceOpen).sort().at(1)!),
             max: this.getMax(data.map((issuer: Issuer) => issuer.priceOpen).sort().reverse().at(1)!),
+          }
+        },
+
+        plugins: {
+          title: {
+            display: false
+          },
+
+          legend: {
+            display: false
           }
         }
       }

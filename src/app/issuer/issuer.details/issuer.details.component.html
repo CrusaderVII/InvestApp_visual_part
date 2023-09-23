@@ -9,6 +9,10 @@
     </header>
 
     <div class="chart-container">
+        <div class="period-container">
+            <button class="period" (click)="getIssuerForLastMonth()">Month</button>
+            <button class="period" (click)="getIssuerForLastWeek()">Week</button>
+        </div>
         <canvas #chart class="chart"></canvas>
     </div>
 
