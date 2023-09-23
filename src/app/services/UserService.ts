@@ -106,6 +106,8 @@ export class UserService implements OnInit{
     }
 
     public conntainsIssuerInBookmarks(secId: string): boolean {
+        if(localStorage.getItem('issuersList')==null) return false;
+
         const secIds = this.getUserFavoriteIssuersFromStorage()
                 .map((issuerMetadata: IssuerMetadata) => issuerMetadata.secId)
 

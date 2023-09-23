@@ -34,7 +34,7 @@ export class IssuerComponent implements OnInit{
     if(this.userService.getUserName()==null) {
       window.location.href='login'
     } else {
-      if( this.userService.conntainsIssuerInBookmarks(this.issuerShortName)) {
+      if( this.userService.containsIssuerInBookmarks(this.issuerShortName)) {
         this.userService.deleteUserFavoriteIssuer(this.userService.getUserName(), this.issuerShortName!)
       } else{
         this.userService.addIssuerToUser(this.userService.getUserName(), this.issuerShortName, this.issuerFullName)
