@@ -100,6 +100,6 @@
 }
 
 .input-form .create-btn:hover {
-    background-color: #FE7E73;
+    background: rgb(171,188,232);
     cursor: pointer;
 }

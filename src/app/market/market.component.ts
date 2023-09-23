@@ -2,8 +2,6 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Observable, switchMap, timer, Subscription } from "rxjs";
 import { Issuer } from "../issuer/issuer.component";
 import { IssuerService } from "../services/IssuerService";
-import { CommonModule } from "@angular/common";
-import { RouterLink } from "@angular/router";
 
 @Component({
     selector: 'market',
@@ -23,12 +21,6 @@ export class MarketComponent implements OnInit, OnDestroy{
             switchMap(() => this.service.getMainIssuersNow())
         ).subscribe(
             (data: Issuer[]) => { this.mainIssuers = data }
-        )
-
-        this.subscription = timer(0, 15000).pipe(
-            switchMap(() => this.service.getStock())
-        ).subscribe(
-            (data: Issuer[]) => { this.simpleIssuers = data.slice(0, 9)}
         )
     }
 

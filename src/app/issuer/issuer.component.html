@@ -18,7 +18,7 @@
       </div>
       <div class="right-box">
         
-        <button *ngIf="userService.conntainsIssuerInBookmarks(issuerShortName); else elseBlock" class="issuer-header-btn-pressed" (click)="bookmarkIssuer()">
+        <button *ngIf="userService.containsIssuerInBookmarks(issuerShortName); else elseBlock" class="issuer-header-btn-pressed" (click)="bookmarkIssuer()">
           <i class="fa fa-bookmark" aria-hidden="true"></i>
         </button>
         

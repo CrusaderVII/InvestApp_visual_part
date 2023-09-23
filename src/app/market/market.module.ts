@@ -5,13 +5,15 @@ import { RouterModule } from "@angular/router";
 import { MarketComponent } from "./market.component";
 import { IssuerService } from "../services/IssuerService";
 import { FormsModule } from "@angular/forms";
+import { IssuerListModule } from "./issuer-list/issuer-list.module";
 
 @NgModule ({
     imports: [
         CommonModule,
         HttpClientModule,
         RouterModule,
-        FormsModule
+        FormsModule,
+        IssuerListModule
     ],
 
     declarations: [

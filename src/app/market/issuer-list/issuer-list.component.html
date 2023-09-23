@@ -1,0 +1,25 @@
+<body>
+    <div class="container">
+        <div class="issuers-container">
+            <div class="issuer" *ngFor="let issuer of issuers" (click)="goLink(issuer.shortName, issuer.fullName)">
+                <h1>{{issuer.shortName}}</h1>
+                <h1>{{issuer.fullName}}</h1>
+
+                <div style="color: #F25022;" class="right-box" *ngIf="issuer.percent<0; else elseBlock">
+                    <h1>{{issuer.priceNow}}</h1>
+                    <h3>{{issuer.percent}}%</h3>
+                </div>
+
+                <ng-template #elseBlock>
+                    <div style="color: #7FBA00;" class="right-box">
+                        <h1>{{issuer.priceNow}}</h1>
+                        <h3>+{{issuer.percent}}%</h3>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <div class="pages-container">
+            <button *ngFor="let i of [].constructor(5); let index = index" class="page" (click)="goPage(index+1)">{{index+1}}</button>
+        </div>
+    </div>
+</body>

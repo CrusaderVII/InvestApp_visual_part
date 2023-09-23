@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Issuer, IssuerMetadata } from "../issuer/issuer.component";
+import { PageMetadata } from "../market/issuer-list/issuer-list.component";
 
 @Injectable ({
     providedIn: 'root'
@@ -24,11 +25,23 @@ export class IssuerService {
         return this.http.get<Array<Issuer>>(`${this.apiServerIssuerURL}last-month?secId=${secId}`)
     }
 
-    public getStock (): Observable<Array<Issuer>> {
-        return this.http.get<Array<Issuer>>(`${this.apiServerURL}stock`)
+    public getStock (page: number): Observable<Array<Issuer>> {
+        return this.http.get<Array<Issuer>>(`${this.apiServerURL}stock?page=${page}`)
     }
 
     public getUserIssuersNow(metadata: Array<IssuerMetadata>): Observable<Array<Issuer>> {
         return this.http.post<Array<Issuer>>(`${this.apiServerIssuerURL}certain`, metadata)
+    }
+
+    public getStockPages(): Observable<PageMetadata> {
+        return this.http.get<PageMetadata>(`${this.apiServerURL}stock/pages`)
+    }
+
+    public savePages(pages: number) {
+        localStorage.setItem('pages', pages.toString())
+    }
+
+    public getPagesFromMemory(): number{ 
+        return parseInt(localStorage.getItem('pages')!) 
     }
 }

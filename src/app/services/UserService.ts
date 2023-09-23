@@ -105,7 +105,7 @@ export class UserService implements OnInit{
             .subscribe()
     }
 
-    public conntainsIssuerInBookmarks(secId: string): boolean {
+    public containsIssuerInBookmarks(secId: string): boolean {
         if(localStorage.getItem('issuersList')==null) return false;
 
         const secIds = this.getUserFavoriteIssuersFromStorage()
