@@ -5,10 +5,17 @@
 <body>
     <div class="container">
         <div class="header-container">
-            <h1 class="name">{{userName}}</h1>
-            <h1 class="email">{{userEmail}}</h1>
+            <div class="main-info-container">
 
-            <button class="logout-btn" (click)="logout()">Log out</button>
+            </div>
+
+            <div class="actions-container">
+                <button class="action-btn">Edit profile</button>
+                <button class="action-btn" (click)="goToMarket()">See market</button>
+                <button class="logout-btn" (click)="logout()">Log out</button>
+            </div>
+
+            <div class="design-block"></div>
         </div>
         <div class="issuers-container">
             <div *ngFor="let issuer of favoriteIssuers" class="issuer">

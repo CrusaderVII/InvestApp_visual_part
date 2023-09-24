@@ -35,4 +35,8 @@ import { IssuerService } from '../services/IssuerService';
         this.userService.logoutUser()
         window.location.href = ''
     } 
+
+    goToMarket() {
+        window.location.href = 'market';
+      }
 }
