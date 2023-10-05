@@ -5,7 +5,23 @@
 <body>
     <div class="container">
         <div class="menu-container">
-            <h1 style="font-family:'Krona one'">InvestApp</h1>
+
+            <div class="header-container">
+                <h1 class="logo">InvestApp</h1>
+            </div>
+            <div class="user-info-container">
+                <h1 class="name">{{userName}}</h1>
+                <h3 class="mail">{{userEmail}}</h3>
+            </div>
+            <ul class="navigation-container">
+                <li><a href="">Home</a></li>
+                <li><a>Watchlist</a></li>
+                <li><a>Discover</a></li>
+                <li><a href="market">Market</a></li>
+            </ul>
+
+            <button class="logout-btn" (click)="this.logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
+
         </div>
     </div>
 </body>
