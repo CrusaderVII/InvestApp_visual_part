@@ -4,26 +4,8 @@
 
 <body>
     <div class="container">
-        <div class="header-container">
-            <div class="main-info-container">
-
-            </div>
-
-            <div class="actions-container">
-                <button class="action-btn">Edit profile</button>
-                <button class="action-btn" (click)="goToMarket()">See market</button>
-                <button class="logout-btn" (click)="logout()">Log out</button>
-            </div>
-
-            <div class="design-block"></div>
-        </div>
-        <div class="issuers-container">
-            <div *ngFor="let issuer of favoriteIssuers" class="issuer">
-                <h3>{{issuer.shortName}}</h3>
-                <h3>{{issuer.fullName}}</h3>
-                <h3>{{issuer.priceNow}}</h3>
-                <h3>{{issuer.percent}}</h3>
-            </div>
+        <div class="menu-container">
+            <h1 style="font-family:'Krona one'">InvestApp</h1>
         </div>
     </div>
 </body>
